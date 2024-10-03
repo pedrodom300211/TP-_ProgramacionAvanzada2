@@ -1,3 +1,21 @@
 <resources>
     <string name="app_name">TP4_ProgramacionAvanzada2</string>
+    <string name="TP4">TP4</string>
+    <string name="ALTA">ALTA</string>
+    <string name="MODIFICACIÓN">MODIFICACIÓN</string>
+    <string name="ID">ID</string>
+    <string name="NombreProducto">NOMBRE DEL PRODUCTO</string>
+    <string name="STOCK">STOCK</string>
+    <string name="Categoria">CATEGORIA</string>
+    <string name="Verduras">Verduras</string>
+    <string name="Agregar">Agregar</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string-array name="categorias">
+        <item>Verduras</item>
+        <item>Frutas</item>
+        <item>Lácteos</item>
+        <item>Carnes</item>
+    </string-array>
+
 </resources>

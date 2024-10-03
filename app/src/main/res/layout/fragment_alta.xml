@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".AltaFragment"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="125dp">
+
+    <TextView
+        android:id="@+id/TV_ID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:text="@string/ID" />
+
+    <EditText
+        android:id="@+id/ET_ID"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="text" />
+
+    <TextView
+        android:id="@+id/TV_NombreProducto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/NombreProducto" />
+
+    <EditText
+        android:id="@+id/ET_NombreProducto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="text" />
+
+    <TextView
+        android:id="@+id/TV_Stock"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/STOCK" />
+
+    <EditText
+        android:id="@+id/ET_Stock"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="text" />
+
+    <TextView
+        android:id="@+id/TV_Categoria"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/Categoria" />
+
+    <Spinner
+        android:id="@+id/spinner_Categoria"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/categorias" />
+</LinearLayout>
