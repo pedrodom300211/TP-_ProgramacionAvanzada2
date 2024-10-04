@@ -9,6 +9,7 @@
     <string name="Categoria">CATEGORIA</string>
     <string name="Verduras">Verduras</string>
     <string name="Agregar">Agregar</string>
+    <string name="Seleccionar">--Seleccionar--</string>
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string-array name="categorias">

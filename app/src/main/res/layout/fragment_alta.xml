@@ -59,5 +59,6 @@
         android:id="@+id/spinner_Categoria"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:entries="@array/categorias" />
+        />
+        <!--android:entries="@string/Seleccionar"-->
 </LinearLayout>
