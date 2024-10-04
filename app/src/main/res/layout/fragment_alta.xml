@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".AltaFragment"
     android:paddingLeft="16dp"
+    android:paddingTop="125dp"
     android:paddingRight="16dp"
-    android:paddingTop="125dp">
+    tools:context=".AltaFragment">
+    <!--android:id="@+id/btnAgregar"-->
 
     <TextView
         android:id="@+id/TV_ID"
@@ -58,7 +60,22 @@
     <Spinner
         android:id="@+id/spinner_Categoria"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        />
-        <!--android:entries="@string/Seleccionar"-->
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/btnAgregar"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@color/colorGray"
+        android:backgroundTint="@null"
+        android:padding="10dp"
+        android:text="AGREGAR"
+        android:textColor="#FFFFFF"
+        android:textColorHighlight="#6F6F6F"
+        android:textColorLink="#7E7E7E" />
+
+    <!--android:entries="@string/Seleccionar"-->
 </LinearLayout>

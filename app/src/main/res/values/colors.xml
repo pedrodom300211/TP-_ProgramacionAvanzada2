@@ -7,5 +7,6 @@
     <color name="colorAccent">#03DAC5</color>
     <color name="toolbarColor">#FF5722</color>
     <color name="backgroundColor">#FFFFFF</color>
+    <color name="colorGray">#858383</color>
     <color name="textColor">#000000</color>
 </resources>
