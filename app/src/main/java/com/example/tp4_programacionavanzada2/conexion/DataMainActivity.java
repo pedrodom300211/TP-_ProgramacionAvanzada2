@@ -159,4 +159,41 @@ public class DataMainActivity {
             new android.os.Handler(android.os.Looper.getMainLooper()).post(() -> callback.accept(listaArticulos));
         });
     }
+
+    public void modificarArticulo(Articulo articulo) {
+        ExecutorService executor = Executors.newSingleThreadExecutor();
+        executor.execute(() -> {
+            try {
+                Class.forName("com.mysql.jdbc.Driver");
+                Connection con = DriverManager.getConnection(DataDB.urlMySQL, DataDB.user, DataDB.pass);
+
+                String query = "UPDATE articulo SET nombre = ?, stock = ?, idCategoria = ? WHERE id = ?";
+                PreparedStatement stmt = con.prepareStatement(query);
+                stmt.setString(1, articulo.getNombre());
+                stmt.setInt(2, articulo.getStock());
+                stmt.setInt(3, articulo.getIdCategoria());
+                stmt.setInt(4, articulo.getId());
+
+                int rowsUpdated = stmt.executeUpdate();
+                if (rowsUpdated > 0) {
+                    new android.os.Handler(android.os.Looper.getMainLooper()).post(() -> {
+                        Toast.makeText(context, "Artículo modificado exitosamente.", Toast.LENGTH_SHORT).show();
+                    });
+                } else {
+                    new android.os.Handler(android.os.Looper.getMainLooper()).post(() -> {
+                        Toast.makeText(context, "No se encontró el artículo a modificar.", Toast.LENGTH_SHORT).show();
+                    });
+                }
+
+                stmt.close();
+                con.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+                new android.os.Handler(android.os.Looper.getMainLooper()).post(() -> {
+                    Toast.makeText(context, "Error al modificar el artículo.", Toast.LENGTH_SHORT).show();
+                });
+            }
+        });
+    }
+
 }
