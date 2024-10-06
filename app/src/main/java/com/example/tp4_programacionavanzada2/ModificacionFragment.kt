@@ -77,7 +77,9 @@ class ModificacionFragment : Fragment() {
             if (ID != null && nombre.isNotEmpty() && stock != null && categoriaSeleccionada != null) {
                 val articulo = Articulo(ID, categoriaSeleccionada.id, nombre, stock)
                 dataLoader.modificarArticulo(articulo)
-            } else {
+            } else if((stock ?: 0) < 0){
+                Toast.makeText(context, "El stock debe ser mayor o igual a 0.", Toast.LENGTH_SHORT).show()
+            }else {
                 Toast.makeText(context, "Datos inválidos. Verifique los campos.", Toast.LENGTH_SHORT).show()
             }
         }

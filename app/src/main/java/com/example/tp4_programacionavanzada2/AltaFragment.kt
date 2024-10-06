@@ -45,19 +45,27 @@ class AltaFragment : Fragment() {
 
             if (ID == null || nombre.isEmpty() || stock == null) {
                 Toast.makeText(context, "Por favor, complete todos los campos correctamente.", Toast.LENGTH_SHORT).show()
-            } else if (categoriaSeleccionada.id == 0) { // Verificar que no sea la opción "--Seleccionar--"
+            } else if (categoriaSeleccionada.id == 0) {
                 Toast.makeText(context, "Por favor, seleccione una categoría válida.", Toast.LENGTH_SHORT).show()
+            } else if (stock < 0) {
+                Toast.makeText(context, "El stock debe ser mayor o igual a 0.", Toast.LENGTH_SHORT).show()
             } else {
-                val articulo = Articulo(ID, categoriaSeleccionada.id, nombre, stock)
-                val dataLoad = DataMainActivity(spinner, requireContext())
-                dataLoad.insertarArticulo(articulo)
-                Toast.makeText(context, "Artículo guardado exitosamente.", Toast.LENGTH_SHORT).show()
-                IDEditText.text.clear();
-                nombreEditText.text.clear();
-                stockEditText.text.clear();
-                spinner.setSelection(0);
+                dataLoader.validarArticulo(ID) { existe ->
+                    if (existe) {
+                        Toast.makeText(context, "El id ingresado ya existe.", Toast.LENGTH_SHORT).show()
+                    } else {
+                        val articulo = Articulo(ID, categoriaSeleccionada.id, nombre, stock)
+                        dataLoader.insertarArticulo(articulo)
+                        Toast.makeText(context, "Artículo guardado exitosamente.", Toast.LENGTH_SHORT).show()
+                        IDEditText.text.clear()
+                        nombreEditText.text.clear()
+                        stockEditText.text.clear()
+                        spinner.setSelection(0)
+                    }
+                }
             }
         }
+
 
         return view
     }

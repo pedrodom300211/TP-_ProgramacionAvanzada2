@@ -196,4 +196,25 @@ public class DataMainActivity {
         });
     }
 
+    public void validarArticulo(int id, Consumer<Boolean> callback) {
+        ExecutorService executor = Executors.newSingleThreadExecutor();
+        executor.execute(() -> {
+            boolean existe = false;
+            try (Connection con = DriverManager.getConnection(DataDB.urlMySQL, DataDB.user, DataDB.pass);
+                 PreparedStatement stmt = con.prepareStatement("SELECT COUNT(1) FROM articulo WHERE id = ?")) {
+                Class.forName("com.mysql.jdbc.Driver");
+                stmt.setInt(1, id);
+                ResultSet rs = stmt.executeQuery();
+                if (rs.next()) {
+                    existe = rs.getInt(1) > 0;
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            boolean finalExiste = existe;
+            new android.os.Handler(android.os.Looper.getMainLooper()).post(() -> callback.accept(finalExiste));
+        });
+    }
+
+
 }
